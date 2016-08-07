@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfCursus.OpleidingenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel LastChildFill="False">
+        <TextBlock Text="Overview Office programs" DockPanel.Dock="Top" Margin="10,0" HorizontalAlignment="Center" FontSize="18"></TextBlock>
+        <ListBox Name="ListBoxPrograms" DockPanel.Dock="Top" Height="100" Margin="0,10" MouseMove="DragListBox_Mousemove">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Width="70">
+                        <StackPanel>
+                            <Image Source="{Binding Path=Symbol}" Stretch="Fill" Height="50" Width="50"></Image>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Name}"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel>
+        <TextBlock Name="GekendTextBlock" Text="Known" Margin="5,0"></TextBlock>
+        </StackPanel>
+        <ListBox Name="ListBoxKnown" Width="165" Margin="10,0" MouseMove="DragListBox_Mousemove" AllowDrop="True" Drop="DropListBox_Drop">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Width="150">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Path=Symbol}" Stretch="Fill" Height="25" Width="25"></Image>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Name}"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ListBoxToFollow" Width="165" DockPanel.Dock="Right" Margin="10,0" MouseMove="DragListBox_Mousemove" AllowDrop="True" Drop="DropListBox_Drop">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Width="150">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Path=Symbol}" Stretch="Fill" Height="25" Width="25"></Image>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Name}"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Name="TeVolgendTextBlock" Text="To follow" DockPanel.Dock="Right" Margin="5,0"></TextBlock>
+    </DockPanel>
+</Window>
